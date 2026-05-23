@@ -2,60 +2,37 @@
 import '../styles/global.css';
 
 const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
+const siteUrl = 'https://aggelito.github.io/simgolf/';
+const stockholmUrl = 'https://aggelito.github.io/simgolf/simulatorgolf-stockholm/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const heroImage = `${basePath}/images/golfoteket-studio.png`;
+const absoluteHeroImage = `${siteUrl}images/golfoteket-studio.png`;
 
-const highlights = [
-  'Södermalm, Stockholm',
-  'Öppet 06.00–23.00',
-  '6 simulatorbanor',
-  'Trackman iO',
+const facts = [
+  ['Plats', 'Södermalm, Stockholm'],
+  ['Öppet', '06.00–23.00'],
+  ['Studio', '6 simulatorbanor'],
+  ['Teknik', 'Trackman iO'],
 ];
 
-const trustItems = [
-  'Spela året runt oavsett väder',
-  'Boka online via Sweetspot',
-  'Self-service med enkel access',
-  'För träning, rundor och kompisgolf',
-];
-
-const features = [
-  {
-    title: 'Boka simulator',
-    text: 'Välj tid, kom in och spela. Enkelt för spontana rundor, egen träning eller en kväll med kompisarna.',
-    cta: 'Se lediga tider',
-  },
-  {
-    title: 'Träna året runt',
-    text: 'Trackman iO ger tydlig data på bollflykt, längd och riktning — perfekt när banorna är stängda eller vädret bråkar.',
-    cta: 'Så funkar det',
-  },
-  {
-    title: 'Grupp & utmaningar',
-    text: 'Kör longest drive, närmast flagg eller matchspel. Passar både vana golfare och de som bara vill testa något kul.',
-    cta: 'Boka grupp',
-  },
-];
-
-const packages = [
-  ['Drop-in & kompisgolf', 'Boka en simulator per timme och dela kostnaden mellan spelarna.'],
-  ['Vinterträning', 'Håll igång svingen med data, repetitioner och bra tempo under lågsäsong.'],
-  ['Gruppbokning', 'Privat och smidigt upplägg för vänner, kollegor eller firanden.'],
-  ['Friskvård', 'Golfoteket är godkänt som friskvård enligt nuvarande upplägg.'],
+const offers = [
+  ['Spela', 'Boka en simulator och spela bana, träna eller kör kompisgolf året runt.'],
+  ['Träna', 'Trackman iO ger tydlig data på bollflykt, längd och riktning.'],
+  ['Samlas', 'Passar kompisgäng, kollegor och enklare gruppbokningar utan bemannat eventkrångel.'],
 ];
 
 const steps = [
-  ['1', 'Boka i Sweetspot', 'Välj datum, tid och simulator direkt i bokningen.'],
-  ['2', 'Få access', 'Du får instruktioner och kommer in på din bokade tid.'],
-  ['3', 'Spela i lugn och ro', 'Klubbor och bollar finns på plats. Lämna studion snygg för nästa spelare.'],
+  ['01', 'Boka online', 'Välj tid och simulator i Sweetspot.'],
+  ['02', 'Kom in', 'Följ accessinstruktionerna för din bokade tid.'],
+  ['03', 'Spela', 'Klubbor och bollar finns på plats. Lämna studion snygg för nästa spelare.'],
 ];
 
 const prices = [
-  ['Mån–Fre 06.00–15.00', '349 kr/tim'],
-  ['Mån–Fre 15.00–22.00', '499 kr/tim'],
-  ['Lör–Sön hela dagen', '499 kr/tim'],
+  ['Mån–fre 06.00–15.00', '349 kr/tim'],
+  ['Mån–fre 15.00–22.00', '499 kr/tim'],
+  ['Lör–sön hela dagen', '499 kr/tim'],
 ];
 
-const siteUrl = 'https://aggelito.github.io/simgolf/';
-const stockholmUrl = 'https://aggelito.github.io/simgolf/simulatorgolf-stockholm/';
 const schema = JSON.stringify([
   {
     '@context': 'https://schema.org',
@@ -64,6 +41,7 @@ const schema = JSON.stringify([
     name: 'Golfoteket',
     description: 'Golfoteket är en simulatorgolfstudio på Södermalm i Stockholm med 6 simulatorbanor, Trackman iO, öppet 06.00–23.00 och bokning online via Sweetspot.',
     url: siteUrl,
+    image: absoluteHeroImage,
     areaServed: [
       { '@type': 'City', name: 'Stockholm' },
       { '@type': 'Place', name: 'Södermalm' },
@@ -81,9 +59,9 @@ const schema = JSON.stringify([
       { '@type': 'LocationFeatureSpecification', name: 'Self-service access', value: true },
     ],
     makesOffer: [
-      { '@type': 'Offer', name: 'Simulatorgolf per timme', url: siteUrl },
-      { '@type': 'Offer', name: 'Gruppbokning simulatorgolf', url: siteUrl },
-      { '@type': 'Offer', name: 'Golfträning vinter', url: stockholmUrl },
+      { '@type': 'Offer', name: 'Simulatorgolf per timme', url: sweetspotUrl },
+      { '@type': 'Offer', name: 'Golfträning inomhus', url: stockholmUrl },
+      { '@type': 'Offer', name: 'Gruppbokning simulatorgolf', url: sweetspotUrl },
     ],
     potentialAction: {
       '@type': 'ReserveAction',
@@ -139,92 +117,82 @@ const schema = JSON.stringify([
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Golfoteket — Simulatorgolf på Södermalm</title>
-    <meta name="description" content="Boka simulatorgolf på Södermalm hos Golfoteket. Spela, träna och utmana vänner året runt med Trackman iO och smidig bokning via Sweetspot." />
-    <meta name="theme-color" content="#08110c" />
-    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+    <meta name="description" content="Boka simulatorgolf på Södermalm hos Golfoteket. 6 simulatorbanor, Trackman iO, öppet 06.00–23.00 och smidig bokning via Sweetspot." />
+    <meta name="theme-color" content="#0b0d08" />
+    <link rel="icon" href={`${basePath}/favicon.svg`} />
+    <link rel="preload" as="image" href={heroImage} />
+    <link rel="canonical" href={siteUrl} />
     <meta property="og:title" content="Golfoteket — Simulatorgolf på Södermalm" />
     <meta property="og:description" content="Boka simulatorgolf året runt. 6 simulatorbanor, Trackman iO och öppet 06.00–23.00." />
     <meta property="og:type" content="website" />
-    <link rel="canonical" href={siteUrl} />
+    <meta property="og:image" content={absoluteHeroImage} />
     <script is:inline type="application/ld+json" set:html={schema}></script>
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header photo-header">
       <a class="brand" href="#top" aria-label="Golfoteket startsida">
-        <span class="brand-mark">G</span>
-        <span>Golfoteket</span>
+        <span class="brand-name">Golfoteket</span>
+        <span class="brand-tag">Golf i alla väder</span>
       </a>
       <nav aria-label="Huvudmeny">
-        <a href={`${import.meta.env.BASE_URL}/simulatorgolf-stockholm/`}>Stockholm</a>
-        <a href="#studio">Studion</a>
-        <a href="#grupp">Grupp</a>
+        <a href={`${basePath}/simulatorgolf-stockholm/`}>Stockholm</a>
+        <a href="#studion">Studion</a>
         <a href="#priser">Priser</a>
-        <a href="#boka">Boka</a>
-        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka nu</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow">Simulatorgolf på Södermalm</p>
-          <h1>Boka. Kom in. Spela golf året runt.</h1>
-          <p class="hero-lead">Golfoteket är en stilren self-service golfstudio med 6 simulatorbanor och Trackman iO. Boka online, få enkel access och spela när det passar dig — träning, 18 hål eller kompisgolf utan väderstrul.</p>
+      <section class="hero-photo" style={`--hero-image: url('${heroImage}')`}>
+        <div class="hero-overlay section-shell">
+          <p class="eyebrow">Södermalm · Stockholm</p>
+          <h1>Simulatorgolf i en riktig golfstudio.</h1>
+          <p class="hero-lead">Boka tid, kom in och spela. Golfoteket har 6 simulatorbanor med Trackman iO, öppet 06.00–23.00 och en lugn studiokänsla för träning, rundor och kompisgolf.</p>
           <div class="hero-actions">
             <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
-            <a class="button secondary" href="#studio">Så fungerar det</a>
-          </div>
-          <div class="hero-facts" aria-label="Snabbfakta">
-            {highlights.map((item) => <span>{item}</span>)}
-          </div>
-        </div>
-        <div class="hero-visual" aria-label="Simulatorgolf hos Golfoteket">
-          <div class="visual-frame">
-            <div class="screen-glow"></div>
-            <div class="target-line"></div>
-            <div class="ball"></div>
-            <div class="flag"></div>
-          </div>
-          <div class="visual-caption">
-            <span>Trackman iO</span>
-            <strong>Premium simulatorgolf utan väderstrul.</strong>
+            <a class="button secondary" href="#sa-funkar-det">Så fungerar det</a>
           </div>
         </div>
       </section>
 
-      <section class="ai-facts section-shell" aria-label="Fakta om Golfoteket">
-        <p class="eyebrow">Kort fakta</p>
-        <h2>Simulatorgolf i Stockholm, mitt på Södermalm.</h2>
-        <p>Golfoteket är en simulatorgolfstudio på Södermalm i Stockholm. Här bokar du simulatorgolf online via Sweetspot, spelar året runt och tränar med Trackman iO i en self-service golfstudio med 6 simulatorbanor.</p>
-        <a class="text-link" href={`${import.meta.env.BASE_URL}/simulatorgolf-stockholm/`}>Läs mer om simulatorgolf i Stockholm →</a>
+      <section class="fact-strip section-shell" aria-label="Snabbfakta">
+        {facts.map(([label, value]) => (
+          <div>
+            <span>{label}</span>
+            <strong>{value}</strong>
+          </div>
+        ))}
       </section>
 
-      <section class="trust-band" aria-label="Snabba argument">
-        {trustItems.map((item) => <span>{item}</span>)}
-      </section>
-
-      <section class="intro section-shell" id="studio">
-        <p class="eyebrow">Golfoteket</p>
+      <section class="intro section-shell" id="studion">
         <div>
-          <h2>En lugnare, smartare plats att spela golf.</h2>
-          <p>Golfoteket är byggt för golfare som vill ha enkel tillgång till bra simulatorer, tydlig data och en miljö som känns mer privat studio än bullrig aktivitetslokal.</p>
+          <p class="eyebrow">Golfoteket</p>
+          <h2>Mer studio. Mindre aktivitetslokal.</h2>
+        </div>
+        <div>
+          <p>Golfoteket är byggt runt själva golfen: mörk, lugn lokal, tydliga simulatorbås, riktiga mattor och en enkel bokningsresa. Ingen fejkad premiumkänsla — bara en plats där det är lätt att spela bra golf året runt.</p>
+          <a class="text-link" href={`${basePath}/simulatorgolf-stockholm/`}>Läs mer om simulatorgolf i Stockholm →</a>
         </div>
       </section>
 
-      <section class="feature-grid section-shell" aria-label="Vad du kan göra hos Golfoteket">
-        {features.map((feature) => (
+      <section class="offer-grid section-shell" aria-label="Vad du kan göra hos Golfoteket">
+        {offers.map(([title, text]) => (
           <article>
-            <h3>{feature.title}</h3>
-            <p>{feature.text}</p>
-            <a href={feature.title === 'Boka simulator' ? sweetspotUrl : feature.title === 'Grupp & utmaningar' ? '#grupp' : '#studio'} target={feature.title === 'Boka simulator' ? '_blank' : undefined} rel={feature.title === 'Boka simulator' ? 'noopener noreferrer' : undefined}>{feature.cta} →</a>
+            <h3>{title}</h3>
+            <p>{text}</p>
           </article>
         ))}
       </section>
 
-      <section class="how section-shell">
+      <section class="image-break section-shell">
+        <img src={heroImage} alt="Golfotekets simulatorgolfstudio med flera simulatorbanor, lounge och Trackman-skärmar" loading="lazy" />
+      </section>
+
+      <section class="how section-shell" id="sa-funkar-det">
         <div class="section-heading">
           <p class="eyebrow">Så fungerar det</p>
-          <h2>Boka, kom in, spela.</h2>
+          <h2>Boka. Kom in. Spela.</h2>
         </div>
         <div class="steps">
           {steps.map(([number, title, text]) => (
@@ -237,57 +205,11 @@ const schema = JSON.stringify([
         </div>
       </section>
 
-      <section class="equipment section-shell">
-        <div>
-          <p class="eyebrow">Utrustning</p>
-          <h2>Klubbor och bollar finns på plats.</h2>
-        </div>
-        <p>Standardset från Callaway och Titleist Pro V1 WHT-bollar finns kostnadsfritt på plats. Klubbor för vänsterspelare, dam och barn finns också enligt nuvarande upplägg.</p>
-      </section>
-
-      <section class="group-section" id="grupp">
-        <div class="section-shell group-inner">
-          <div>
-            <p class="eyebrow">Kompisgäng, kollegor och tävlingar</p>
-            <h2>Privat känsla utan krångel.</h2>
-            <p>Golfoteket är inte byggt som en bar eller stor aktivitetslokal. Det är en smart golfstudio där gruppen bokar tid, får access och kör sin egen grej — lugnt, smidigt och med golfen i centrum.</p>
-          </div>
-          <div class="group-panel">
-            <h3>Upplägg som funkar</h3>
-            <ul>
-              <li>Spela bana tillsammans</li>
-              <li>Longest drive eller närmast flagg</li>
-              <li>Träning inför säsong</li>
-              <li>Enkel self-service utan bemannat eventkrångel</li>
-            </ul>
-            <a class="button secondary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka gruppens tid</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="packages section-shell">
-        <div class="section-heading">
-          <p class="eyebrow">Välj upplägg</p>
-          <h2>Enkelt att förstå. Enkelt att boka.</h2>
-        </div>
-        <div class="package-list">
-          {packages.map(([title, text]) => (
-            <article>
-              <span></span>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section class="pricing section-shell" id="priser">
-        <div class="section-heading">
+        <div>
           <p class="eyebrow">Priser</p>
           <h2>Pris per simulator och timme.</h2>
-          <p>Dela kostnaden med vänner eller kollegor. Inga extra avgifter per spelare.</p>
+          <p>Dela kostnaden mellan spelarna. Enkelt upplägg, tydlig bokning och inga påhittade paket som gör valet svårare.</p>
         </div>
         <div class="price-card">
           {prices.map(([label, price]) => (
@@ -296,15 +218,15 @@ const schema = JSON.stringify([
               <strong>{price}</strong>
             </div>
           ))}
-          <p class="wellness">Godkänd som friskvård.</p>
+          <p class="wellness">Golfoteket är godkänt som friskvård enligt nuvarande upplägg.</p>
         </div>
       </section>
 
       <section class="booking section-shell" id="boka">
         <div class="booking-copy">
           <p class="eyebrow">Boka tid</p>
-          <h2>Välj tid i Sweetspot.</h2>
-          <p>Boka direkt i kalendern nedan. Om inbäddningen inte laddar korrekt öppnar du bokningen i nytt fönster.</p>
+          <h2>Se lediga tider i Sweetspot.</h2>
+          <p>Det viktigaste på sidan är att bokningen är nära hela tiden. Öppna kalendern, välj tid och pegga upp.</p>
           <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Öppna Sweetspot</a>
         </div>
         <div class="booking-frame">
@@ -316,7 +238,13 @@ const schema = JSON.stringify([
         </div>
       </section>
 
-      <section class="faq section-shell">
+      <section class="ai-facts section-shell" aria-label="Fakta om Golfoteket">
+        <p class="eyebrow">Kort fakta</p>
+        <h2>Simulatorgolf i Stockholm, mitt på Södermalm.</h2>
+        <p>Golfoteket är en simulatorgolfstudio på Södermalm i Stockholm. Här bokar du simulatorgolf online via Sweetspot, spelar året runt och tränar med Trackman iO i en self-service golfstudio med 6 simulatorbanor.</p>
+      </section>
+
+      <section class="faq section-shell" id="faq">
         <p class="eyebrow">Bra att veta</p>
         <details open>
           <summary>Är Golfoteket bemannat?</summary>
@@ -327,15 +255,19 @@ const schema = JSON.stringify([
           <p>Ja. Simulatorgolf fungerar både för nybörjare och vana golfare. Ta det som träning, spel eller en social utmaning.</p>
         </details>
         <details>
+          <summary>Finns klubbor och bollar?</summary>
+          <p>Standardset från Callaway och Titleist Pro V1 WHT-bollar finns kostnadsfritt på plats. Klubbor för vänsterspelare, dam och barn finns också enligt nuvarande upplägg.</p>
+        </details>
+        <details>
           <summary>Har ni bar?</summary>
           <p>Nej. Golfoteket är en golfstudio med fokus på simulatorgolf, träning och spel.</p>
         </details>
       </section>
 
       <section class="final-cta section-shell">
-        <p class="eyebrow">Redo att peggas upp?</p>
-        <h2>Se lediga tider och boka simulatorgolf.</h2>
-        <p>En stilren studio, tydlig bokning och golf året runt — för träning, rundor och kompisgolf när det passar dig.</p>
+        <p class="eyebrow">Redo?</p>
+        <h2>Boka simulatorgolf hos Golfoteket.</h2>
+        <p>En riktig studio, tydlig bokning och golf året runt — utan att krångla till det.</p>
         <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
       </section>
     </main>
