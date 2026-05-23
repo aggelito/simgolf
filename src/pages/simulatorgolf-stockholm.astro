@@ -4,6 +4,7 @@ import '../styles/global.css';
 const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
 const siteUrl = 'https://aggelito.github.io/simgolf/';
 const pageUrl = 'https://aggelito.github.io/simgolf/simulatorgolf-stockholm/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const schema = JSON.stringify([
   {
     '@context': 'https://schema.org',
@@ -75,7 +76,7 @@ const schema = JSON.stringify([
     <title>Simulatorgolf i Stockholm — Golfoteket på Södermalm</title>
     <meta name="description" content="Letar du efter simulatorgolf i Stockholm? Golfoteket på Södermalm har 6 simulatorbanor, Trackman iO, öppet 06.00–23.00 och bokning via Sweetspot." />
     <meta name="theme-color" content="#08110c" />
-    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+    <link rel="icon" href={`${basePath}/favicon.svg`} />
     <link rel="canonical" href={pageUrl} />
     <meta property="og:title" content="Simulatorgolf i Stockholm — Golfoteket" />
     <meta property="og:description" content="Boka simulatorgolf på Södermalm i Stockholm. 6 simulatorbanor, Trackman iO och smidig bokning via Sweetspot." />
@@ -84,14 +85,15 @@ const schema = JSON.stringify([
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={`${import.meta.env.BASE_URL}/`} aria-label="Golfoteket startsida">
+      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
         <span class="brand-mark">G</span>
         <span>Golfoteket</span>
       </a>
       <nav aria-label="Huvudmeny">
-        <a href={`${import.meta.env.BASE_URL}/#studio`}>Studion</a>
-        <a href={`${import.meta.env.BASE_URL}/#grupp`}>Grupp</a>
-        <a href={`${import.meta.env.BASE_URL}/#priser`}>Priser</a>
+        <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
+        <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
+        <a href={`${basePath}/priser/`}>Priser</a>
+        <a href={`${basePath}/sa-funkar-det/`}>Så funkar det</a>
         <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka nu</a>
       </nav>
     </header>

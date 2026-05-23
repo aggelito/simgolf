@@ -1,0 +1,167 @@
+---
+import '../styles/global.css';
+
+const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
+const siteUrl = 'https://aggelito.github.io/simgolf/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const pageUrl = 'https://aggelito.github.io/simgolf/indoor-golf-stockholm/';
+const schema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'SportsActivityLocation'],
+    '@id': `${siteUrl}#golfoteket`,
+    name: 'Golfoteket',
+    description: 'Golfoteket erbjuder indoor golf i Stockholm på Södermalm med 6 simulatorbanor, Trackman iO, öppet 06.00–23.00 och onlinebokning via Sweetspot.',
+    url: siteUrl,
+    areaServed: [{ '@type': 'City', name: 'Stockholm' }, { '@type': 'Place', name: 'Södermalm' }],
+    address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressRegion: 'Stockholm', addressCountry: 'SE' },
+    openingHours: 'Mo-Su 06:00-23:00',
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: '6 simulatorbanor', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Trackman iO', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Onlinebokning via Sweetspot', value: true },
+    ],
+    potentialAction: { '@type': 'ReserveAction', target: sweetspotUrl, name: 'Boka hos Golfoteket' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: 'Indoor golf i Stockholm — Golfoteket på Södermalm',
+    description: 'Indoor golf i Stockholm hos Golfoteket på Södermalm. Spela simulatorgolf året runt med Trackman iO, 6 simulatorbanor och bokning via Sweetspot.',
+    inLanguage: 'sv-SE',
+    about: { '@id': `${siteUrl}#golfoteket` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Vad betyder indoor golf?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Indoor golf betyder golf inomhus, oftast i simulator där du kan spela banor, träna slag och få data på bollflykten.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Behöver man vara bra på golf?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Nej. Indoor golf passar både nybörjare och vana golfare.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Hur bokar jag indoor golf hos Golfoteket?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Du bokar online via Sweetspot och får instruktioner för access till din bokade tid.' },
+      },
+    ],
+  },
+]);
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indoor golf i Stockholm — Golfoteket på Södermalm</title>
+    <meta name="description" content="Indoor golf i Stockholm hos Golfoteket på Södermalm. Spela simulatorgolf året runt med Trackman iO, 6 simulatorbanor och bokning via Sweetspot." />
+    <meta name="theme-color" content="#08110c" />
+    <link rel="icon" href={`${basePath}/favicon.svg`} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content="Indoor golf i Stockholm — Golfoteket på Södermalm" />
+    <meta property="og:description" content="Indoor golf i Stockholm hos Golfoteket på Södermalm. Spela simulatorgolf året runt med Trackman iO, 6 simulatorbanor och bokning via Sweetspot." />
+    <meta property="og:type" content="website" />
+    <script is:inline type="application/ld+json" set:html={schema}></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
+        <span class="brand-name">Golfoteket</span>
+        <span class="brand-tag">Golf i alla väder</span>
+      </a>
+      <nav aria-label="Huvudmeny">
+        <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
+        <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
+        <a href={`${basePath}/priser/`}>Priser</a>
+        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
+      </nav>
+    </header>
+
+    <main id="top" class="seo-page">
+      <section class="seo-hero section-shell">
+        <p class="eyebrow">Indoor golf Stockholm</p>
+        <h1>Indoor golf i Stockholm utan väderstrul.</h1>
+        <p class="hero-lead">Golfoteket på Södermalm är en self-service golfstudio för dig som vill spela, träna och tävla inomhus året runt. Boka online, kom in och pegga upp.</p>
+        <div class="hero-actions">
+          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
+          <a class="button secondary" href={`${basePath}/sa-funkar-det/`}>Så fungerar det</a>
+        </div>
+      </section>
+
+      <section class="ai-facts section-shell" aria-label="Sammanfattning">
+        <p class="eyebrow">Kort svar</p>
+        <h2>Vad är ett bra indoor golf-alternativ i Stockholm?</h2>
+        <p>Golfoteket erbjuder indoor golf på Södermalm i Stockholm med 6 simulatorbanor, Trackman iO, öppet 06.00–23.00 och onlinebokning via Sweetspot för träning, rundor och social golf.</p>
+      </section>
+
+      <section class="seo-content section-shell">
+        <article>
+          <h2>Spela inomhus när banan inte bjuder upp</h2>
+          <p>Indoor golf är rätt när regn, mörker, frost eller fullbokade banor stoppar vanligt spel. Hos Golfoteket bokar du en simulator per timme och använder tiden för bana, träning eller tävlingar med kompisar.</p>
+          <p>Upplägget är byggt för att vara smidigt: boka via Sweetspot, följ accessinstruktionerna och spela under din bokade tid.</p>
+        </article>
+        <article>
+          <h2>Trackman iO för både spel och träning</h2>
+          <p>Trackman iO ger tydlig feedback på bollflykt, längd och riktning. Det gör indoor golf relevant både för den som vill hålla igång svingen och den som vill spela en social runda.</p>
+          <p>Med 6 simulatorbanor på Södermalm är Golfoteket ett lokalt alternativ för indoor golf i Stockholm året runt.</p>
+        </article>
+      </section>
+
+      <section class="feature-grid section-shell" aria-label="Snabba val">
+        <article>
+          <h3>Spela bana</h3>
+          <p>Boka tid och spela en simulerad runda med vänner eller kollegor.</p>
+          <a href={sweetspotUrl}>Se lediga tider →</a>
+        </article>
+        <article>
+          <h3>Träna svingen</h3>
+          <p>Använd Trackman-data för att hålla igång och förstå slagen bättre.</p>
+          <a href={`${basePath}/golftraning-vinter/`}>Läs om vinterträning →</a>
+        </article>
+        <article>
+          <h3>Kolla priser</h3>
+          <p>Se timpriser och när det är smartast att boka.</p>
+          <a href={`${basePath}/priser/`}>Se priser →</a>
+        </article>
+      </section>
+
+      <section class="faq section-shell">
+        <p class="eyebrow">FAQ</p>
+        <details open>
+          <summary>Vad betyder indoor golf?</summary>
+          <p>Indoor golf betyder golf inomhus, oftast i simulator där du kan spela banor, träna slag och få data på bollflykten.</p>
+        </details>
+        <details >
+          <summary>Behöver man vara bra på golf?</summary>
+          <p>Nej. Indoor golf passar både nybörjare och vana golfare.</p>
+        </details>
+        <details >
+          <summary>Hur bokar jag indoor golf hos Golfoteket?</summary>
+          <p>Du bokar online via Sweetspot och får instruktioner för access till din bokade tid.</p>
+        </details>
+      </section>
+
+      <section class="final-cta section-shell">
+        <p class="eyebrow">Redo att spela?</p>
+        <h2>Boka en tid hos Golfoteket.</h2>
+        <p>Simulatorgolf på Södermalm med Trackman iO, 6 simulatorbanor och enkel bokning via Sweetspot.</p>
+        <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider</a>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Golfoteket</strong>
+      <span>Simulatorgolf på Södermalm — öppet 06.00–23.00.</span>
+    </footer>
+  </body>
+</html>

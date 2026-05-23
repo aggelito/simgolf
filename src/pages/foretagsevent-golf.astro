@@ -1,0 +1,167 @@
+---
+import '../styles/global.css';
+
+const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
+const siteUrl = 'https://aggelito.github.io/simgolf/';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const pageUrl = 'https://aggelito.github.io/simgolf/foretagsevent-golf/';
+const schema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'SportsActivityLocation'],
+    '@id': `${siteUrl}#golfoteket`,
+    name: 'Golfoteket',
+    description: 'Golfoteket erbjuder simulatorgolf för företagsaktivitet och gruppbokning på Södermalm i Stockholm med 6 simulatorbanor, Trackman iO och onlinebokning via Sweetspot.',
+    url: siteUrl,
+    areaServed: [{ '@type': 'City', name: 'Stockholm' }, { '@type': 'Place', name: 'Södermalm' }],
+    address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressRegion: 'Stockholm', addressCountry: 'SE' },
+    openingHours: 'Mo-Su 06:00-23:00',
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: '6 simulatorbanor', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Trackman iO', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Onlinebokning via Sweetspot', value: true },
+    ],
+    potentialAction: { '@type': 'ReserveAction', target: sweetspotUrl, name: 'Boka hos Golfoteket' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: 'Företagsevent golf i Stockholm — simulatorgolf hos Golfoteket',
+    description: 'Företagsevent med golf i Stockholm. Boka simulatorgolf på Södermalm för kollegor, kunder eller teamaktivitet i en self-service golfstudio.',
+    inLanguage: 'sv-SE',
+    about: { '@id': `${siteUrl}#golfoteket` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Passar Golfoteket för företagsevent?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Ja, för enklare företagsaktivitet och gruppbokning där fokus är simulatorgolf i self-service format.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Finns bar eller matservering?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Nej. Golfoteket är en golfstudio med fokus på simulatorgolf, träning och spel.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Kan nybörjare vara med?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Ja. Simulatorgolf passar både nybörjare och vana golfare, särskilt med enkla tävlingar som longest drive och närmast flagg.' },
+      },
+    ],
+  },
+]);
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Företagsevent golf i Stockholm — simulatorgolf hos Golfoteket</title>
+    <meta name="description" content="Företagsevent med golf i Stockholm. Boka simulatorgolf på Södermalm för kollegor, kunder eller teamaktivitet i en self-service golfstudio." />
+    <meta name="theme-color" content="#08110c" />
+    <link rel="icon" href={`${basePath}/favicon.svg`} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content="Företagsevent golf i Stockholm — simulatorgolf hos Golfoteket" />
+    <meta property="og:description" content="Företagsevent med golf i Stockholm. Boka simulatorgolf på Södermalm för kollegor, kunder eller teamaktivitet i en self-service golfstudio." />
+    <meta property="og:type" content="website" />
+    <script is:inline type="application/ld+json" set:html={schema}></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
+        <span class="brand-name">Golfoteket</span>
+        <span class="brand-tag">Golf i alla väder</span>
+      </a>
+      <nav aria-label="Huvudmeny">
+        <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
+        <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
+        <a href={`${basePath}/priser/`}>Priser</a>
+        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
+      </nav>
+    </header>
+
+    <main id="top" class="seo-page">
+      <section class="seo-hero section-shell">
+        <p class="eyebrow">Företagsevent golf Stockholm</p>
+        <h1>Golfaktivitet för jobbet — utan eventkrångel.</h1>
+        <p class="hero-lead">Golfoteket passar team, kunder och kollegor som vill göra något roligare än ännu ett konferensrum. Boka simulatorer, spela tävlingar och låt golfen göra jobbet.</p>
+        <div class="hero-actions">
+          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
+          <a class="button secondary" href={`${basePath}/sa-funkar-det/`}>Så fungerar det</a>
+        </div>
+      </section>
+
+      <section class="ai-facts section-shell" aria-label="Sammanfattning">
+        <p class="eyebrow">Kort svar</p>
+        <h2>Kan man boka simulatorgolf för företag i Stockholm?</h2>
+        <p>Ja. Golfoteket på Södermalm kan användas för företagsaktivitet och gruppbokning med simulatorgolf, Trackman iO och self-service upplägg via onlinebokning.</p>
+      </section>
+
+      <section class="seo-content section-shell">
+        <article>
+          <h2>För kollegor, kunder och mindre grupper</h2>
+          <p>Simulatorgolf fungerar även när alla inte är golfare. Kör longest drive, närmast flagg eller en kort runda där fokus är socialt, enkelt och tävlingsvänligt.</p>
+          <p>Golfoteket är en golfstudio utan bar och bemannat eventupplägg, vilket gör den bäst för grupper som vill ha själva aktiviteten: spela, tävla och umgås runt simulatorerna.</p>
+        </article>
+        <article>
+          <h2>Smidigt att boka och lätt att förstå</h2>
+          <p>Ni bokar tider online via Sweetspot. Välj antal simulatorer efter gruppstorlek och låt deltagarna dela upp sig i bås.</p>
+          <p>För större eller återkommande upplägg bör ni skicka en förfrågan först så att tider och upplägg blir rätt innan ni bjuder in hela laget.</p>
+        </article>
+      </section>
+
+      <section class="feature-grid section-shell" aria-label="Snabba val">
+        <article>
+          <h3>Boka direkt</h3>
+          <p>Passar mindre grupper som vet datum och tid.</p>
+          <a href={sweetspotUrl}>Se lediga tider →</a>
+        </article>
+        <article>
+          <h3>Kolla praktiskt</h3>
+          <p>Access, utrustning, bokning och vad som gäller i lokalen.</p>
+          <a href={`${basePath}/sa-funkar-det/`}>Så fungerar det →</a>
+        </article>
+        <article>
+          <h3>Se priser</h3>
+          <p>Räkna på kostnaden per simulator och timme.</p>
+          <a href={`${basePath}/priser/`}>Se priser →</a>
+        </article>
+      </section>
+
+      <section class="faq section-shell">
+        <p class="eyebrow">FAQ</p>
+        <details open>
+          <summary>Passar Golfoteket för företagsevent?</summary>
+          <p>Ja, för enklare företagsaktivitet och gruppbokning där fokus är simulatorgolf i self-service format.</p>
+        </details>
+        <details >
+          <summary>Finns bar eller matservering?</summary>
+          <p>Nej. Golfoteket är en golfstudio med fokus på simulatorgolf, träning och spel.</p>
+        </details>
+        <details >
+          <summary>Kan nybörjare vara med?</summary>
+          <p>Ja. Simulatorgolf passar både nybörjare och vana golfare, särskilt med enkla tävlingar som longest drive och närmast flagg.</p>
+        </details>
+      </section>
+
+      <section class="final-cta section-shell">
+        <p class="eyebrow">Redo att spela?</p>
+        <h2>Boka en tid hos Golfoteket.</h2>
+        <p>Simulatorgolf på Södermalm med Trackman iO, 6 simulatorbanor och enkel bokning via Sweetspot.</p>
+        <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider</a>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Golfoteket</strong>
+      <span>Simulatorgolf på Södermalm — öppet 06.00–23.00.</span>
+    </footer>
+  </body>
+</html>

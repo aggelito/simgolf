@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aggelito.github.io/simgolf/sitemap.xml
