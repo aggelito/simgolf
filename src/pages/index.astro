@@ -10,19 +10,36 @@ const highlights = [
   'Trackman iO',
 ];
 
+const trustItems = [
+  'Spela året runt oavsett väder',
+  'Boka online via Sweetspot',
+  'Self-service med enkel access',
+  'För träning, rundor och kompisgolf',
+];
+
 const features = [
   {
-    title: 'Spela',
-    text: 'Boka en simulator och spela en runda på några av världens bästa banor — själv eller med vänner.',
+    title: 'Boka simulator',
+    text: 'Välj tid, kom in och spela. Enkelt för spontana rundor, egen träning eller en kväll med kompisarna.',
+    cta: 'Se lediga tider',
   },
   {
-    title: 'Träna',
-    text: 'Slå med tydlig data, analysera bollflykt och håll formen året runt utan att vädret styr.',
+    title: 'Träna året runt',
+    text: 'Trackman iO ger tydlig data på bollflykt, längd och riktning — perfekt när banorna är stängda eller vädret bråkar.',
+    cta: 'Så funkar det',
   },
   {
-    title: 'Utmana',
-    text: 'Longest drive, närmast flagg eller matchspel. Enkelt för kompisgäng, kollegor och golfare på alla nivåer.',
+    title: 'Grupp & utmaningar',
+    text: 'Kör longest drive, närmast flagg eller matchspel. Passar både vana golfare och de som bara vill testa något kul.',
+    cta: 'Boka grupp',
   },
+];
+
+const packages = [
+  ['Drop-in & kompisgolf', 'Boka en simulator per timme och dela kostnaden mellan spelarna.'],
+  ['Vinterträning', 'Håll igång svingen med data, repetitioner och bra tempo under lågsäsong.'],
+  ['Gruppbokning', 'Privat och smidigt upplägg för vänner, kollegor eller firanden.'],
+  ['Friskvård', 'Golfoteket är godkänt som friskvård enligt nuvarande upplägg.'],
 ];
 
 const steps = [
@@ -59,6 +76,7 @@ const prices = [
       </a>
       <nav aria-label="Huvudmeny">
         <a href="#studio">Studion</a>
+        <a href="#grupp">Grupp</a>
         <a href="#priser">Priser</a>
         <a href="#boka">Boka</a>
         <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka nu</a>
@@ -68,9 +86,9 @@ const prices = [
     <main id="top">
       <section class="hero section-shell">
         <div class="hero-copy">
-          <p class="eyebrow">Indoor golf på Södermalm</p>
-          <h1>Din golfstudio mitt i stan.</h1>
-          <p class="hero-lead">Spela, träna eller utmana vänner i en stilren simulatorstudio med Trackman iO. Boka online och spela när det passar dig — året runt, alla dagar.</p>
+          <p class="eyebrow">Simulatorgolf på Södermalm</p>
+          <h1>Boka. Kom in. Spela golf året runt.</h1>
+          <p class="hero-lead">Golfoteket är en stilren self-service golfstudio med 6 simulatorbanor och Trackman iO. Boka online, få enkel access och spela när det passar dig — träning, 18 hål eller kompisgolf utan väderstrul.</p>
           <div class="hero-actions">
             <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
             <a class="button secondary" href="#studio">Så fungerar det</a>
@@ -93,6 +111,10 @@ const prices = [
         </div>
       </section>
 
+      <section class="trust-band" aria-label="Snabba argument">
+        {trustItems.map((item) => <span>{item}</span>)}
+      </section>
+
       <section class="intro section-shell" id="studio">
         <p class="eyebrow">Golfoteket</p>
         <div>
@@ -106,6 +128,7 @@ const prices = [
           <article>
             <h3>{feature.title}</h3>
             <p>{feature.text}</p>
+            <a href={feature.title === 'Boka simulator' ? sweetspotUrl : feature.title === 'Grupp & utmaningar' ? '#grupp' : '#studio'} target={feature.title === 'Boka simulator' ? '_blank' : undefined} rel={feature.title === 'Boka simulator' ? 'noopener noreferrer' : undefined}>{feature.cta} →</a>
           </article>
         ))}
       </section>
@@ -132,6 +155,44 @@ const prices = [
           <h2>Klubbor och bollar finns på plats.</h2>
         </div>
         <p>Standardset från Callaway och Titleist Pro V1 WHT-bollar finns kostnadsfritt på plats. Klubbor för vänsterspelare, dam och barn finns också enligt nuvarande upplägg.</p>
+      </section>
+
+      <section class="group-section" id="grupp">
+        <div class="section-shell group-inner">
+          <div>
+            <p class="eyebrow">Kompisgäng, kollegor och tävlingar</p>
+            <h2>Privat känsla utan krångel.</h2>
+            <p>Golfoteket är inte byggt som en bar eller stor aktivitetslokal. Det är en smart golfstudio där gruppen bokar tid, får access och kör sin egen grej — lugnt, smidigt och med golfen i centrum.</p>
+          </div>
+          <div class="group-panel">
+            <h3>Upplägg som funkar</h3>
+            <ul>
+              <li>Spela bana tillsammans</li>
+              <li>Longest drive eller närmast flagg</li>
+              <li>Träning inför säsong</li>
+              <li>Enkel self-service utan bemannat eventkrångel</li>
+            </ul>
+            <a class="button secondary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka gruppens tid</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="packages section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">Välj upplägg</p>
+          <h2>Enkelt att förstå. Enkelt att boka.</h2>
+        </div>
+        <div class="package-list">
+          {packages.map(([title, text]) => (
+            <article>
+              <span></span>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section class="pricing section-shell" id="priser">
@@ -181,6 +242,13 @@ const prices = [
           <summary>Har ni bar?</summary>
           <p>Nej. Golfoteket är en golfstudio med fokus på simulatorgolf, träning och spel.</p>
         </details>
+      </section>
+
+      <section class="final-cta section-shell">
+        <p class="eyebrow">Redo att peggas upp?</p>
+        <h2>Se lediga tider och boka simulatorgolf.</h2>
+        <p>En stilren studio, tydlig bokning och golf året runt — för träning, rundor och kompisgolf när det passar dig.</p>
+        <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
       </section>
     </main>
 
