@@ -72,6 +72,11 @@ const schema = JSON.stringify([
     <meta property="og:description" content="Så fungerar Golfoteket: boka simulatorgolf online via Sweetspot, följ accessinstruktioner och spela i self-service golfstudio på Södermalm." />
     <meta property="og:type" content="website" />
     <script is:inline type="application/ld+json" set:html={schema}></script>
+    <script is:inline>
+      const storedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : prefersDark);
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -83,6 +88,7 @@ const schema = JSON.stringify([
         <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
         <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
         <a href={`${basePath}/priser/`}>Priser</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Växla mellan mörkt och ljust läge">Mörkt</button>
         <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
       </nav>
     </header>
@@ -163,5 +169,17 @@ const schema = JSON.stringify([
       <strong>Golfoteket</strong>
       <span>Simulatorgolf på Södermalm — öppet 06.00–23.00.</span>
     </footer>
+    <script is:inline>
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const setLabel = () => {
+        if (toggle) toggle.textContent = document.documentElement.classList.contains('dark') ? 'Ljust' : 'Mörkt';
+      };
+      setLabel();
+      toggle?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        setLabel();
+      });
+    </script>
   </body>
 </html>
