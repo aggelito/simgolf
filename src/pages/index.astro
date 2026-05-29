@@ -21,7 +21,7 @@ const nav = [
   ['Om oss', '#om-oss'],
   ['Lediga tider', '#lediga-tider'],
   ['Hitta hit', '#hitta-hit'],
-  ['Så funkar det', '#sa-funkar-det'],
+  ['Så funkar det', '#hur-funkar-det'],
   ['Priser', '#priser'],
   ['Bli medlem', '#medlemskap'],
   ['Kontakta oss', '#kontakt'],
@@ -160,33 +160,31 @@ const schema = JSON.stringify([
               <small>Från 349 kr/tim</small>
               <b aria-hidden="true">→</b>
             </a>
-            <a class="button primary ghost" href="#sa-funkar-det">Så funkar det</a>
+            <a class="button primary ghost" href="#hur-funkar-det">Så funkar det</a>
           </div>
         </div>
       </section>
 
       <section class="about section-shell" id="om-oss">
-        <div class="section-kicker">Om Golfoteket</div>
-        <div class="split-grid">
-          <div>
-            <h2>Upplevelsen i centrum</h2>
-            <p>Golfoteket är ett toppmodernt nyöppnat simulatorgolfstudio med den senaste tekniken för maximal precision och realism inom golfsimulering.</p>
-            <ul class="bullet-list">
-              <li>6 simulatorer</li>
-              <li>Trackman iO</li>
-              <li>Åsögatan 87</li>
-              <li>Öppet 06–23</li>
-              <li>Friskvård godkänt</li>
-            </ul>
-          </div>
-          <div class="feature-list">
-            {aboutFeatures.map(([title, desc]) => (
-              <article>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </article>
-            ))}
-          </div>
+        <div class="section-heading centered compact">
+          <p class="section-kicker">Om Golfoteket</p>
+          <h2>Upplevelsen i centrum</h2>
+          <p>Golfoteket är ett toppmodernt nyöppnat simulatorgolfstudio med den senaste tekniken för maximal precision och realism inom golfsimulering.</p>
+          <ul class="bullet-list">
+            <li>6 simulatorer</li>
+            <li>Trackman iO</li>
+            <li>Åsögatan 87</li>
+            <li>Öppet 06–23</li>
+            <li>Friskvård godkänt</li>
+          </ul>
+        </div>
+        <div class="feature-list square-list">
+          {aboutFeatures.map(([title, desc]) => (
+            <article>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -234,7 +232,7 @@ const schema = JSON.stringify([
         </div>
       </section>
 
-      <section class="how section-shell" id="sa-funkar-det">
+      <section class="how section-shell" id="hur-funkar-det">
         <div class="section-kicker">Så enkelt är det</div>
         <div class="section-heading centered">
           <h2>Hur funkar det?</h2>
