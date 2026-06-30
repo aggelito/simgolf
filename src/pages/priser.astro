@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 
-const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
+const sweetspotUrl = 'https://book.sweetspot.io/clubs/golfoteket/2553/tee-sheet?date=2026-08-17';
 const siteUrl = 'https://aggelito.github.io/simgolf/';
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -12,7 +12,7 @@ const schema = JSON.stringify([
     '@type': ['LocalBusiness', 'SportsActivityLocation'],
     '@id': `${siteUrl}#golfoteket`,
     name: 'Golfoteket',
-    description: 'Golfoteket publicerar priser för simulatorgolf i Stockholm: 349 kr/tim vardag dagtid och 499 kr/tim kvällar och helger enligt nuvarande upplägg.',
+    description: 'Golfoteket publicerar priser för simulatorgolf i Stockholm: 299 kr/tim vardag dagtid och 399 kr/tim kvällar och helger enligt nuvarande upplägg.',
     url: siteUrl,
     areaServed: [{ '@type': 'City', name: 'Stockholm' }, { '@type': 'Place', name: 'Södermalm' }],
     address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressRegion: 'Stockholm', addressCountry: 'SE' },
@@ -107,7 +107,7 @@ const schema = JSON.stringify([
       <section class="ai-facts section-shell" aria-label="Sammanfattning">
         <p class="eyebrow">Kort svar</p>
         <h2>Vad kostar simulatorgolf hos Golfoteket?</h2>
-        <p>Golfoteket tar 349 kr/tim måndag–fredag 06.00–15.00 och 499 kr/tim måndag–fredag 15.00–22.00 samt lördag–söndag hela dagen enligt nuvarande publicerade prislista.</p>
+        <p>Golfoteket tar 299 kr/tim måndag–fredag 06.00–14.00 och 399 kr/tim måndag–fredag 14.00–23.00 samt lördag–söndag hela dagen enligt nuvarande publicerade prislista.</p>
       </section>
 
       <section class="seo-content section-shell">
@@ -126,12 +126,12 @@ const schema = JSON.stringify([
       <section class="feature-grid section-shell" aria-label="Snabba val">
         <article>
           <h3>Vardag dagtid</h3>
-          <p>Mån–fre 06.00–15.00: 349 kr/tim.</p>
+          <p>Mån–fre 06.00–14.00: 299 kr/tim.</p>
           <a href={sweetspotUrl}>Boka dagtid →</a>
         </article>
         <article>
           <h3>Kväll och helg</h3>
-          <p>Mån–fre 15.00–22.00 samt helg: 499 kr/tim.</p>
+          <p>Mån–fre 14.00–23.00 samt helg: 399 kr/tim.</p>
           <a href={sweetspotUrl}>Se lediga tider →</a>
         </article>
         <article>

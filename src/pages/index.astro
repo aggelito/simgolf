@@ -1,59 +1,74 @@
 ---
 import '../styles/global.css';
 
-const sweetspotUrl = 'https://book.sweetspot.io/clubs/indoor-golf-group/961/tee-sheet';
+const sweetspotUrl = 'https://book.sweetspot.io/clubs/golfoteket/2553/tee-sheet?date=2026-08-17';
 const mapsUrl = 'https://maps.google.com/?q=Åsögatan+87+Stockholm';
-const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2036.5!2d18.0730!3d59.3140!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsMxOJzUwLjQiTiAxOMKwMDQnMjIuOCJF!5e0!3m2!1ssv!2sse!4v1&q=Åsögatan+87+Stockholm';
 const siteUrl = 'https://aggelito.github.io/simgolf/';
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-const heroImage = `${basePath}/images/lovable/hero-golf-Uqf02GKW.jpg`;
+const heroImage = `${basePath}/images/golfoteket-live/hero-golf-1600.webp`;
+const heroFallback = `${basePath}/images/lovable/hero-golf-Uqf02GKW.jpg`;
 const logoImage = `${basePath}/images/lovable/golfoteket-logo-new-l7jxXqlw.png`;
-const socialImages = [
-  `${basePath}/images/lovable/social-golf-1-C9vBYKiy.png`,
-  `${basePath}/images/lovable/social-golf-2-D_7D_oIO.png`,
-  `${basePath}/images/lovable/social-golf-3-m77PmL4w.png`,
-  `${basePath}/images/lovable/social-golf-4-4t_Yhrt6.png`,
-];
-const absoluteHeroImage = `${siteUrl}images/lovable/hero-golf-Uqf02GKW.jpg`;
+const offerImage = `${basePath}/images/golfoteket-live/opening-banner.webp`;
+const precisionImage = `${basePath}/images/golfoteket-live/golfball-precision-1200.webp`;
+const pingLogo = `${basePath}/images/golfoteket-live/ping-logo.png`;
+const absoluteHeroImage = `${siteUrl}images/golfoteket-live/hero-golf-1600.webp`;
 
 const nav = [
-  ['Boka', '#boka'],
-  ['Priser', '#priser'],
-  ['Så funkar det', '#sa-funkar-det'],
-  ['Företag', '#foretag'],
+  ['Bokning', '#boka'],
   ['Hitta hit', '#hitta-hit'],
+  ['Tekniken', '#tekniken'],
+  ['Så funkar det', '#sa-funkar-det'],
+  ['Priser', '#priser'],
+  ['Medlem', '#medlem'],
+  ['Kontakt', '#kontakt'],
 ];
 
 const proof = [
-  ['6', 'Trackman iO-simulatorer'],
-  ['06–23', 'öppet varje dag'],
-  ['349 kr', 'från per timme'],
-  ['Åsögatan 87', 'Södermalm'],
+  ['6 Trackman iO', 'simulatorer'],
+  ['Klubbor ingår', 'Ping G440 + bollar'],
+  ['Friskvård', 'godkänd aktivitet'],
+  ['Alla nivåer', 'nybörjare till låg-HCP'],
 ];
 
-const useCases = [
-  ['Spela en runda', 'Boka en simulator, välj bana och spela 9 eller 18 hål när vädret inte levererar.', 'Boka runda'],
-  ['Träna med data', 'Trackman iO ger feedback på bollflykt, längd, riktning och träff så du vet vad som faktiskt händer.', 'Boka träning'],
-  ['Ta med gänget', 'Perfekt för kompisar, kollegor och grupper som vill göra något roligare än ännu en vanlig aktivitet.', 'Boka grupp'],
+const facts = [
+  ['Adress', 'Åsögatan 87, 118 29 Stockholm'],
+  ['Öppet', '06–23 varje dag'],
+  ['Pris', 'Från 299 kr/tim per simulator'],
+  ['Bokning', 'Via Sweetspot när kalendern öppnar'],
 ];
 
-const steps = [
-  ['01', 'Välj tid', 'Öppna Sweetspot och välj simulatorn som passar dig.'],
-  ['02', 'Få access', 'Dörrkod och instruktioner skickas inför bokningen.'],
-  ['03', 'Pegga upp', 'Klubbor och bollar finns på plats. Spela, träna och lämna snyggt efter dig.'],
+const featureCards = [
+  ['6 simulatorer', 'Trackman iO i varje bay med 4K laserprojektor.'],
+  ['Öppet 06–23', 'Spela före jobbet, efter jobbet eller på helgen.'],
+  ['Klubbor & bollar ingår', 'Ping G440 och bollar finns på plats utan extra kostnad.'],
+  ['Boka enkelt via Sweetspot', 'När bokningen öppnar får du kod till dörren automatiskt.'],
 ];
 
 const priceRows = [
-  ['Mån–Fre 06:00–15:00', '349 kr/tim'],
-  ['Mån–Fre 15:00–22:00', '499 kr/tim'],
-  ['Lör–Sön hela dagen', '499 kr/tim'],
+  ['Mån–Fre 06:00–14:00', '299 kr/tim'],
+  ['Mån–Fre 14:00–23:00', '399 kr/tim'],
+  ['Lör–Sön hela dagen', '399 kr/tim'],
+];
+
+const steps = [
+  ['01', 'Boka tid', 'Välj simulator och tid i Sweetspot när kalendern öppnar.'],
+  ['02', 'Få dörrkod', 'Koden skickas automatiskt inför din bokning.'],
+  ['03', 'Spela', 'Ping G440-klubbor och bollar finns på plats.'],
+];
+
+const membership = [
+  ['Personligt skåp', 'Förvara dina egna klubbor på plats när medlemskap/skåp erbjuds.'],
+  ['Klippkort', 'Köp flera pass och få bättre värde per session när upplägget är live.'],
+  ['Medlemserbjudanden', 'Förtur, kampanjer och erbjudanden för spelare som återkommer ofta.'],
 ];
 
 const faqs = [
-  ['Behöver jag ta med klubbor?', 'Nej, Ping G440-klubbor och bollar finns på plats. Det finns även begränsat med klubbor för vänsterspelare, dam och barn enligt nuvarande upplägg.'],
-  ['Är priset per person?', 'Nej, priset är per simulator och timme. Dela kostnaden mellan spelarna.'],
-  ['Är Golfoteket bemannat?', 'Upplägget är self-service. Du bokar online, får accessinstruktioner och spelar under din bokade tid.'],
-  ['Passar det nybörjare?', 'Ja. Simulatorgolf fungerar både för nybörjare och vana golfare — spela lugnt, träna eller tävla mot kompisarna.'],
+  ['När öppnar Golfoteket?', 'Golfoteket öppnar 17 augusti på Åsögatan 87 på Södermalm.'],
+  ['När öppnar bokningen?', 'Onlinebokningen öppnar snart. Nuvarande bokningsläge kommuniceras som bokning från 1 augusti inför öppning 17 augusti.'],
+  ['Vad kostar simulatorgolf?', 'Priset är per simulator och timme: 299 kr/tim vardagar 06–14 och 399 kr/tim vardagar 14–23 samt helger.'],
+  ['Ingår klubbor och bollar?', 'Ja, Ping G440-klubbor och bollar finns på plats utan extra kostnad enligt nuvarande upplägg.'],
+  ['Är Golfoteket bemannat?', 'Golfoteket är en obemannad/self-service golfanläggning. Du bokar online och får dörrkod inför din bokning.'],
+  ['Passar det företag och grupper?', 'Ja, för AW, kickoff, teambuilding, kundaktivitet och grupper som vill spela simulatorgolf i egen takt.'],
 ];
 
 const schema = JSON.stringify([
@@ -62,9 +77,10 @@ const schema = JSON.stringify([
     '@type': ['LocalBusiness', 'SportsActivityLocation'],
     '@id': `${siteUrl}#golfoteket`,
     name: 'Golfoteket',
-    description: 'Golfoteket är en simulatorgolfstudio på Södermalm i Stockholm med 6 Trackman iO-simulatorer, öppet 06–23 och bokning online via Sweetspot.',
+    description: 'Golfoteket är en simulatorgolfstudio på Södermalm i Stockholm med 6 Trackman iO-simulatorer, öppet 06–23 varje dag, priser från 299 kr/tim och bokning via Sweetspot.',
     url: siteUrl,
     image: absoluteHeroImage,
+    email: 'info@golfoteket.se',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Åsögatan 87',
@@ -73,17 +89,27 @@ const schema = JSON.stringify([
       addressCountry: 'SE',
     },
     openingHours: 'Mo-Su 06:00-23:00',
+    areaServed: [{ '@type': 'Place', name: 'Södermalm' }, { '@type': 'City', name: 'Stockholm' }],
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: '6 Trackman iO simulatorer', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Klubbor och bollar ingår', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Friskvård godkänt', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Ping G440-klubbor och bollar ingår', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Friskvård godkänd', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Self-service med dörrkod', value: true },
     ],
     makesOffer: [
-      { '@type': 'Offer', name: 'Simulatorgolf från 349 kr/tim', url: sweetspotUrl },
-      { '@type': 'Offer', name: 'Golfträning inomhus', url: sweetspotUrl },
-      { '@type': 'Offer', name: 'Gruppbokning simulatorgolf', url: sweetspotUrl },
+      { '@type': 'Offer', name: 'Simulatorgolf vardagar 06–14 från 299 kr/tim', price: '299', priceCurrency: 'SEK', url: sweetspotUrl },
+      { '@type': 'Offer', name: 'Simulatorgolf kväll och helg 399 kr/tim', price: '399', priceCurrency: 'SEK', url: sweetspotUrl },
+      { '@type': 'Offer', name: 'Öppningserbjudande 99 kr/tim', price: '99', priceCurrency: 'SEK', availabilityStarts: '2026-08-17', url: sweetspotUrl },
     ],
     potentialAction: { '@type': 'ReserveAction', target: sweetspotUrl, name: 'Boka simulatorgolf via Sweetspot' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}#website`,
+    url: siteUrl,
+    name: 'Golfoteket',
+    inLanguage: 'sv-SE',
   },
   {
     '@context': 'https://schema.org',
@@ -102,14 +128,14 @@ const schema = JSON.stringify([
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#08130d" />
-    <title>Golfoteket — Boka simulatorgolf på Södermalm</title>
-    <meta name="description" content="Boka simulatorgolf på Södermalm. Golfoteket har 6 Trackman iO-simulatorer, öppet 06–23 varje dag, klubbor som ingår och tider från 349 kr/tim." />
+    <meta name="theme-color" content="#f7f1e7" />
+    <title>Golfoteket | Sim Golf & Simulatorgolf på Södermalm i Stockholm</title>
+    <meta name="description" content="Spela simulatorgolf på Södermalm i Stockholm. Golfoteket har 6 Trackman iO-simulatorer, öppet 06–23 varje dag, klubbor ingår och priser från 299 kr/tim." />
     <link rel="icon" href={`${basePath}/favicon.svg`} />
     <link rel="preload" as="image" href={heroImage} />
     <link rel="canonical" href={siteUrl} />
-    <meta property="og:title" content="Golfoteket — Boka simulatorgolf på Södermalm" />
-    <meta property="og:description" content="6 Trackman iO-simulatorer, öppet 06–23 och bokning online via Sweetspot." />
+    <meta property="og:title" content="Golfoteket | Simulatorgolf på Södermalm" />
+    <meta property="og:description" content="6 Trackman iO-simulatorer, öppet 06–23, klubbor ingår och öppning 17 augusti." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={absoluteHeroImage} />
     <script is:inline type="application/ld+json" set:html={schema}></script>
@@ -118,42 +144,46 @@ const schema = JSON.stringify([
     <a class="skip-link" href="#boka">Gå direkt till bokning</a>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Golfoteket startsida">
-        <img src={logoImage} alt="Golfoteket" />
+        <img src={logoImage} alt="Golfoteket logo" width="176" height="88" />
       </a>
       <nav aria-label="Huvudmeny">
         {nav.map(([label, href]) => <a href={href}>{label}</a>)}
       </nav>
-      <a class="header-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka nu</a>
+      <a class="header-cta" href="#boka">Boka simulator</a>
     </header>
 
     <main id="top">
-      <section class="hero" style={`--hero-image: url('${heroImage}')`}>
+      <section class="hero">
+        <picture class="hero-photo" aria-hidden="true">
+          <source srcset={heroImage} type="image/webp" />
+          <img src={heroFallback} alt="" width="1536" height="1024" fetchpriority="high" decoding="async" />
+        </picture>
         <div class="hero-inner section-shell">
           <div class="hero-copy">
-            <p class="eyebrow">Simulatorgolf på Södermalm • öppet 06–23</p>
-            <h1>Boka golf när du faktiskt vill spela.</h1>
-            <p class="hero-lead">6 Trackman iO-simulatorer på Åsögatan 87. Klubbor och bollar finns på plats. Boka online, få access och spela året runt.</p>
+            <p class="eyebrow">Södermalm, Stockholm • öppnar 17 augusti</p>
+            <h1>Simulatorgolf på Södermalm</h1>
+            <p class="hero-lead">Spela golf året runt i 6 Trackman iO-simulatorer på Åsögatan 87. Öppet 06–23 varje dag. Klubbor och bollar ingår.</p>
             <div class="hero-actions">
-              <a class="button primary xl" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider →</a>
+              <a class="button primary xl" href="#boka">Bokningen öppnar snart</a>
               <a class="button secondary" href="#priser">Se priser</a>
             </div>
             <div class="micro-proof" aria-label="Snabbfakta">
-              <span>Från 349 kr/tim</span>
-              <span>Friskvård godkänt</span>
-              <span>Klubbor ingår</span>
+              <span>Från 299 kr/tim</span>
+              <span>Friskvård godkänd</span>
+              <span>Ping G440 ingår</span>
             </div>
           </div>
 
-          <aside class="booking-card" aria-label="Boka Golfoteket">
-            <p class="card-label">Nästa slag</p>
-            <h2>Boka på under en minut.</h2>
-            <p>Välj tid i Sweetspot. Priset är per simulator och timme — ta med en kompis och dela kostnaden.</p>
-            <a class="button primary full" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Öppna bokningen</a>
-            <div class="booking-facts">
-              <span>06–23 varje dag</span>
-              <span>6 simulatorer</span>
-              <span>Södermalm</span>
-            </div>
+          <aside class="launch-card" aria-label="Golfoteket öppningserbjudande">
+            <p class="card-label">Öppningserbjudande</p>
+            <h2>99 kr/tim när Golfoteket öppnar.</h2>
+            <p>Golfoteket öppnar 17 augusti. Onlinebokningen öppnar snart inför premiären.</p>
+            <ul>
+              <li>6 Trackman iO-simulatorer</li>
+              <li>Åsögatan 87, Södermalm</li>
+              <li>Öppet 06–23 varje dag</li>
+            </ul>
+            <a class="button primary full" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Öppna Sweetspot</a>
           </aside>
         </div>
       </section>
@@ -167,29 +197,94 @@ const schema = JSON.stringify([
         ))}
       </section>
 
-      <section class="booking-section section-shell" id="boka">
+      <section class="offer-section section-shell" id="boka">
         <div class="section-intro tight">
           <p class="eyebrow">Lediga tider</p>
-          <h2>Sluta scrolla. Boka tiden.</h2>
-          <p>Det här är pengahålet: bokningen ligger högt upp, tydligt och nära. Om kalendern inte laddar öppnar knappen Sweetspot direkt.</p>
-          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka direkt i Sweetspot</a>
+          <h2>Bokningen öppnar snart.</h2>
+          <p>Sweetspot-kalendern är tillfälligt inaktiverad fram till öppning. Det är väntat — därför visar backup-sidan inte en trasig iframe, utan en ren bokningsstatus och direktlänk.</p>
+          <div class="hero-actions">
+            <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Gå till Sweetspot</a>
+            <a class="button secondary" href="mailto:info@golfoteket.se?subject=Intresse%20Golfoteket">Kontakta oss</a>
+          </div>
         </div>
-        <div class="booking-frame">
-          <iframe src={sweetspotUrl} title="Boka simulatorgolf hos Golfoteket via Sweetspot" loading="lazy"></iframe>
+        <article class="offer-card">
+          <div>
+            <p class="card-label">Premiär</p>
+            <h3>Golfoteket öppnar 17 augusti — spela från 99 kr/tim.</h3>
+            <p>Den här informationen finns som kampanjbild på nuvarande sidan, men här ligger den också som riktig HTML så Google, AI-sök och skärmläsare faktiskt kan läsa den.</p>
+          </div>
+          <img src={offerImage} alt="Golfoteket öppnar 17 augusti — spela simulatorgolf från 99 kr i timmen" width="900" height="1070" loading="lazy" decoding="async" />
+        </article>
+      </section>
+
+      <section class="facts section-shell" aria-label="Snabba fakta om Golfoteket">
+        <p class="eyebrow">Kort svar</p>
+        <h2>Golfoteket är en simulatorgolfstudio på Åsögatan 87 på Södermalm.</h2>
+        <div class="fact-grid">
+          {facts.map(([label, text]) => <p><strong>{label}</strong><span>{text}</span></p>)}
         </div>
       </section>
 
-      <section class="use-cases section-shell" id="om-oss">
+      <section class="about section-shell" id="om-oss">
         <div class="section-intro centered">
-          <p class="eyebrow">Välj ditt spel</p>
-          <h2>Tre enkla skäl att boka.</h2>
+          <p class="eyebrow">Om Golfoteket</p>
+          <h2>Upplevelsen i centrum.</h2>
+          <p>Golfoteket är en modern simulatorgolfstudio med den senaste tekniken för maximal precision och realism inom golfsimulering.</p>
         </div>
-        <div class="card-grid three">
-          {useCases.map(([title, text, cta]) => (
+        <div class="card-grid four">
+          {featureCards.map(([title, text]) => (
             <article class="cash-card">
               <h3>{title}</h3>
               <p>{text}</p>
-              <a href={sweetspotUrl} target="_blank" rel="noopener noreferrer">{cta} →</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="location section-shell" id="hitta-hit">
+        <div>
+          <p class="eyebrow">Hitta hit</p>
+          <h2>I hjärtat av Södermalm.</h2>
+          <address>
+            <strong>Golfoteket</strong><br />
+            Åsögatan 87<br />
+            118 29 Stockholm<br />
+            Tunnelbanestation Medborgarplatsen
+          </address>
+          <a class="button secondary" href={mapsUrl} target="_blank" rel="noopener noreferrer">Öppna i Google Maps</a>
+        </div>
+        <div class="map-placeholder" aria-label="Karta till Golfoteket">
+          <span>Åsögatan 87</span>
+          <strong>Medborgarplatsen • Södermalm</strong>
+          <p>Google Maps laddas först när du klickar — snabbare sida, mindre skräp.</p>
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Visa karta →</a>
+        </div>
+      </section>
+
+      <section class="tech-section section-shell" id="tekniken">
+        <div>
+          <p class="eyebrow">Tekniken</p>
+          <h2>Precision i varje slag.</h2>
+          <p>Banorna är utrustade med 4K-spelskärm på 4×2,5 meter, analysskärm för direkt feedback på din sving och 27” kontrollskärm för smidig navigering.</p>
+          <p>Golfoteket använder Trackman iO — med höghastighetskamera och hög precision för träffsäker analys av dina slag.</p>
+          <p>Komplett set med Ping G440-klubbor och bollar finns på plats utan extra kostnad.</p>
+          <img class="ping-logo" src={pingLogo} alt="PING golf logo" width="128" height="54" loading="lazy" />
+        </div>
+        <img class="tech-image" src={precisionImage} alt="Trackman iO golfsimulator med 4K skärm" width="1200" height="800" loading="lazy" decoding="async" />
+      </section>
+
+      <section class="how section-shell" id="sa-funkar-det">
+        <div class="section-intro centered">
+          <p class="eyebrow">Så enkelt är det</p>
+          <h2>Hur funkar det?</h2>
+          <p>Golfoteket är en obemannad golfanläggning. Du bokar tid, får pinkod till dörren och spelar under din bokade tid.</p>
+        </div>
+        <div class="steps">
+          {steps.map(([number, title, text]) => (
+            <article>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
             </article>
           ))}
         </div>
@@ -199,9 +294,9 @@ const schema = JSON.stringify([
         <div class="section-shell price-grid">
           <div>
             <p class="eyebrow">Priser</p>
-            <h2>Enkelt val. Hög spelglädje.</h2>
-            <p>Priset är per simulator och timme. Inga extra avgifter per spelare — dela kostnaden mellan spelarna och få mer golf för pengarna.</p>
-            <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka från 349 kr/tim</a>
+            <h2>Golf för alla.</h2>
+            <p>Priset är per simulator och timme — dela kostnaden med dina vänner eller kollegor. Inga extra avgifter per spelare.</p>
+            <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Öppna bokningen</a>
           </div>
           <div class="price-card">
             {priceRows.map(([label, price]) => (
@@ -215,15 +310,15 @@ const schema = JSON.stringify([
         </div>
       </section>
 
-      <section class="how section-shell" id="sa-funkar-det">
+      <section class="membership section-shell" id="medlem">
         <div class="section-intro centered">
-          <p class="eyebrow">Så funkar det</p>
-          <h2>Boka. Kom in. Spela.</h2>
+          <p class="eyebrow">Medlemskap</p>
+          <h2>Bli medlem.</h2>
+          <p>Spelar du ofta? Medlemskap och klippkort ger bättre värde per runda, smidig bokning och möjlighet till personligt skåp när upplägget är live.</p>
         </div>
-        <div class="steps">
-          {steps.map(([number, title, text]) => (
-            <article>
-              <span>{number}</span>
+        <div class="card-grid three">
+          {membership.map(([title, text]) => (
+            <article class="cash-card">
               <h3>{title}</h3>
               <p>{text}</p>
             </article>
@@ -231,55 +326,24 @@ const schema = JSON.stringify([
         </div>
       </section>
 
-      <section class="image-sell section-shell">
-        <div class="image-stack">
-          <img src={socialImages[0]} alt="Golfotekets simulatorstudio" loading="lazy" />
-          <img src={socialImages[1]} alt="Simulatorgolf hos Golfoteket" loading="lazy" />
+      <section class="business-band section-shell" id="kontakt">
+        <div>
+          <p class="eyebrow">Kontakta oss</p>
+          <h2>Företag & Event.</h2>
         </div>
         <div>
-          <p class="eyebrow">Premiumkänsla</p>
-          <h2>Mer golfstudio. Mindre aktivitetslokal.</h2>
-          <p>Golfoteket ska kännas som ett självklart ställe att boka igen. Riktiga simulatorer, tydligt upplägg, central plats och en sida som driver kunden mot bokning utan att krångla.</p>
-          <ul class="check-list">
-            <li>Trackman iO i varje bay</li>
-            <li>4K-spelskärm och analysskärm</li>
-            <li>Ping G440-klubbor och bollar på plats</li>
-          </ul>
-          <a class="button secondary dark" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka nästa runda</a>
-        </div>
-      </section>
-
-      <section class="business-band section-shell" id="foretag">
-        <div>
-          <p class="eyebrow">Företag & grupper</p>
-          <h2>AW, kickoff eller kompisrunda som folk faktiskt snackar om.</h2>
-        </div>
-        <div>
-          <p>Boka flera banor eller samla gänget runt simulatorgolf. Enkelt att förstå, lätt att boka och betydligt roligare än standardaktiviteten.</p>
-          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Kolla lediga tider</a>
-        </div>
-      </section>
-
-      <section class="location section-shell" id="hitta-hit">
-        <div>
-          <p class="eyebrow">Hitta hit</p>
-          <h2>Åsögatan 87, Södermalm.</h2>
-          <address>
-            <strong>Golfoteket</strong><br />
-            Åsögatan 87<br />
-            118 29 Stockholm<br />
-            Tunnelbanestation Medborgarplatsen
-          </address>
-          <a class="button secondary" href={mapsUrl} target="_blank" rel="noopener noreferrer">Öppna i Google Maps</a>
-        </div>
-        <div class="map-card">
-          <iframe src={mapEmbedUrl} title="Golfoteket karta" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p>Planerar ni en AW, kickoff, teambuilding eller firmaevent? Boka hela lokalen eller flera banor. Golfoteket passar bäst för grupper som vill spela simulatorgolf i egen takt.</p>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:info@golfoteket.se">info@golfoteket.se</a>
+            <a class="button secondary" href="https://www.instagram.com/golfoteket/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="button secondary" href="https://www.tiktok.com/@golfoteket" target="_blank" rel="noopener noreferrer">TikTok</a>
+          </div>
         </div>
       </section>
 
       <section class="faq section-shell">
         <div class="section-intro centered">
-          <p class="eyebrow">Bra att veta</p>
+          <p class="eyebrow">FAQ</p>
           <h2>Friktion dödar bokningar. Här är svaren.</h2>
         </div>
         <div class="faq-list">
@@ -294,17 +358,17 @@ const schema = JSON.stringify([
 
       <section class="final-cta section-shell">
         <p class="eyebrow">Redo?</p>
-        <h2>Boka Golfoteket nu.</h2>
-        <p>Välj tid, pegga upp och slå första slaget. Nu går vi rakt mot fairway.</p>
-        <a class="button primary xl" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider →</a>
+        <h2>Golfoteket öppnar 17 augusti.</h2>
+        <p>Bokningen öppnar snart. Tills dess ska sidan sälja, informera och samla intent — utan trasiga iframes.</p>
+        <a class="button primary xl" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Öppna Sweetspot →</a>
       </section>
     </main>
 
-    <a class="mobile-booking" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka simulator</a>
+    <a class="mobile-booking" href="#boka">Bokning öppnar snart</a>
 
     <footer>
       <strong>Golfoteket</strong>
-      <span>Simulatorgolf på Södermalm • öppet 06–23 varje dag</span>
+      <span>Simulatorgolf på Södermalm • öppet 06–23 varje dag • Åsögatan 87</span>
     </footer>
   </body>
 </html>
