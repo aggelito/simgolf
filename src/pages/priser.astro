@@ -1,185 +1,30 @@
 ---
-import '../styles/global.css';
-
-const sweetspotUrl = 'https://book.sweetspot.io/clubs/golfoteket/2553/tee-sheet?date=2026-08-17';
-const siteUrl = 'https://aggelito.github.io/simgolf/';
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const pageUrl = 'https://aggelito.github.io/simgolf/priser/';
-const schema = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'SportsActivityLocation'],
-    '@id': `${siteUrl}#golfoteket`,
-    name: 'Golfoteket',
-    description: 'Golfoteket publicerar priser för simulatorgolf i Stockholm: 299 kr/tim vardag dagtid och 399 kr/tim kvällar och helger enligt nuvarande upplägg.',
-    url: siteUrl,
-    areaServed: [{ '@type': 'City', name: 'Stockholm' }, { '@type': 'Place', name: 'Södermalm' }],
-    address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressRegion: 'Stockholm', addressCountry: 'SE' },
-    openingHours: 'Mo-Su 06:00-23:00',
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: '6 simulatorbanor', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Trackman iO', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Onlinebokning via Sweetspot', value: true },
-    ],
-    potentialAction: { '@type': 'ReserveAction', target: sweetspotUrl, name: 'Boka hos Golfoteket' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'OfferCatalog',
-    '@id': `${pageUrl}#webpage`,
-    url: pageUrl,
-    name: 'Priser simulatorgolf Stockholm — Golfoteket',
-    description: 'Se priser för simulatorgolf hos Golfoteket på Södermalm. Timpris per simulator, öppettider 06.00–23.00 och bokning via Sweetspot.',
-    inLanguage: 'sv-SE',
-    about: { '@id': `${siteUrl}#golfoteket` },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Är priset per person?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Nej, priset är per simulator och timme enligt nuvarande upplägg.' },
-      },
-      {
-        '@type': 'Question',
-        name: 'Kan man dela kostnaden?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Ja. Ni kan vara flera spelare på samma simulator och dela kostnaden mellan er.' },
-      },
-      {
-        '@type': 'Question',
-        name: 'Var ser jag lediga tider?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Lediga tider och bokning finns i Sweetspot.' },
-      },
-    ],
-  },
-]);
+import SeoLanding from '../components/SeoLanding.astro';
+import { site } from '../data/golfoteket';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const faqs = [
+  ['Är priset per person?', 'Nej. Priset är per simulator och timme, så ni kan dela kostnaden.'],
+  ['Vilka medlemskap finns?', 'Platinum kostar 2 495 kr, Guld 1 250 kr och Silver 995 kr. Alla gäller i ett år.'],
+  ['Kan jag använda friskvårdsbidrag?', 'Ja. Simulatorgolf hos Golfoteket är godkänt som friskvård.'],
+];
 ---
-
-<!doctype html>
-<html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Priser simulatorgolf Stockholm — Golfoteket</title>
-    <meta name="description" content="Se priser för simulatorgolf hos Golfoteket på Södermalm. Timpris per simulator, öppettider 06.00–23.00 och bokning via Sweetspot." />
-    <meta name="theme-color" content="#08110c" />
-    <link rel="icon" href={`${basePath}/favicon.svg`} />
-    <link rel="canonical" href={pageUrl} />
-    <meta property="og:title" content="Priser simulatorgolf Stockholm — Golfoteket" />
-    <meta property="og:description" content="Se priser för simulatorgolf hos Golfoteket på Södermalm. Timpris per simulator, öppettider 06.00–23.00 och bokning via Sweetspot." />
-    <meta property="og:type" content="website" />
-    <script is:inline type="application/ld+json" set:html={schema}></script>
-    <script is:inline>
-      const storedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : prefersDark);
-    </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
-        <span class="brand-name">Golfoteket</span>
-        <span class="brand-tag">Golf i alla väder</span>
-      </a>
-      <nav aria-label="Huvudmeny">
-        <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
-        <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
-        <a href={`${basePath}/priser/`}>Priser</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Växla mellan mörkt och ljust läge">Mörkt</button>
-        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
-      </nav>
-    </header>
-
-    <main id="top" class="seo-page">
-      <section class="seo-hero section-shell">
-        <p class="eyebrow">Priser simulatorgolf</p>
-        <h1>Pris per simulator och timme.</h1>
-        <p class="hero-lead">Hos Golfoteket bokar du simulator per timme. Dela kostnaden mellan spelarna och välj tid efter när du vill träna, spela eller samla gänget.</p>
-        <div class="hero-actions">
-          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
-          <a class="button secondary" href={`${basePath}/sa-funkar-det/`}>Så fungerar det</a>
-        </div>
-      </section>
-
-      <section class="ai-facts section-shell" aria-label="Sammanfattning">
-        <p class="eyebrow">Kort svar</p>
-        <h2>Vad kostar simulatorgolf hos Golfoteket?</h2>
-        <p>Golfoteket tar 299 kr/tim måndag–fredag 06.00–14.00 och 399 kr/tim måndag–fredag 14.00–23.00 samt lördag–söndag hela dagen enligt nuvarande publicerade prislista.</p>
-      </section>
-
-      <section class="seo-content section-shell">
-        <article>
-          <h2>Timpris som är lätt att räkna på</h2>
-          <p>Priset gäller per simulator och timme, vilket gör det enkelt att dela kostnaden mellan spelare. Ju fler ni är i båset, desto lägre blir kostnaden per person.</p>
-          <p>För aktuell tillgänglighet och bokning används Sweetspot, så kalendern är alltid bästa källan för lediga tider.</p>
-        </article>
-        <article>
-          <h2>Smartast värde utanför prime time</h2>
-          <p>Vill du träna fokuserat är dagtid på vardagar den vassaste luckan. Kvällar och helger är mer naturliga för rundor, kompisgolf och grupper.</p>
-          <p>Golfoteket är godkänt som friskvård enligt nuvarande upplägg, vilket kan göra träningen mer prisvärd för många spelare.</p>
-        </article>
-      </section>
-
-      <section class="feature-grid section-shell" aria-label="Snabba val">
-        <article>
-          <h3>Vardag dagtid</h3>
-          <p>Mån–fre 06.00–14.00: 299 kr/tim.</p>
-          <a href={sweetspotUrl}>Boka dagtid →</a>
-        </article>
-        <article>
-          <h3>Kväll och helg</h3>
-          <p>Mån–fre 14.00–23.00 samt helg: 399 kr/tim.</p>
-          <a href={sweetspotUrl}>Se lediga tider →</a>
-        </article>
-        <article>
-          <h3>Så fungerar bokning</h3>
-          <p>Boka online, följ accessinstruktioner och spela på din tid.</p>
-          <a href={`${basePath}/sa-funkar-det/`}>Läs praktiskt →</a>
-        </article>
-      </section>
-
-      <section class="faq section-shell">
-        <p class="eyebrow">FAQ</p>
-        <details open>
-          <summary>Är priset per person?</summary>
-          <p>Nej, priset är per simulator och timme enligt nuvarande upplägg.</p>
-        </details>
-        <details >
-          <summary>Kan man dela kostnaden?</summary>
-          <p>Ja. Ni kan vara flera spelare på samma simulator och dela kostnaden mellan er.</p>
-        </details>
-        <details >
-          <summary>Var ser jag lediga tider?</summary>
-          <p>Lediga tider och bokning finns i Sweetspot.</p>
-        </details>
-      </section>
-
-      <section class="final-cta section-shell">
-        <p class="eyebrow">Redo att spela?</p>
-        <h2>Boka en tid hos Golfoteket.</h2>
-        <p>Simulatorgolf på Södermalm med Trackman iO, 6 simulatorbanor och enkel bokning via Sweetspot.</p>
-        <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider</a>
-      </section>
-    </main>
-
-    <footer>
-      <strong>Golfoteket</strong>
-      <span>Simulatorgolf på Södermalm — öppet 06.00–23.00.</span>
-    </footer>
-    <script is:inline>
-      const toggle = document.querySelector('[data-theme-toggle]');
-      const setLabel = () => {
-        if (toggle) toggle.textContent = document.documentElement.classList.contains('dark') ? 'Ljust' : 'Mörkt';
-      };
-      setLabel();
-      toggle?.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        setLabel();
-      });
-    </script>
-  </body>
-</html>
+<SeoLanding
+  title="Priser simulatorgolf Stockholm — Golfoteket"
+  description="Se timpriser, medlemskap, klippkort och öppningserbjudanden hos Golfoteket. Simulatorgolf från 299 kr per simulator och timme."
+  path="priser/"
+  eyebrow="Priser & medlemskap"
+  heading="Mer golf. Tydliga priser."
+  lead="Boka per simulator och timme, välj ett medlemskap eller köp klippkort. Aktiviteten är godkänd som friskvård."
+  answerHeading="Vad kostar simulatorgolf hos Golfoteket?"
+  answer="Vardagar 06–14 kostar en simulator 299 kr per timme. Vardagar 14–23 och hela helgen är priset 399 kr. Priset gäller simulatorn, inte varje spelare."
+  articles={[
+    { title: 'Timpriser och öppningserbjudande', paragraphs: ['Mån–fre 06–14: 299 kr. Mån–fre 14–23: 399 kr. Lör–sön hela dagen: 399 kr.', 'Till 1 oktober kan du bli medlem för 1 kr och spela första timmen för 99 kr. Ett 10-timmarspass kostar 1 995 kr och ett 5-timmarspass 1 295 kr.'] },
+    { title: 'Medlemskap för hela året', paragraphs: ['Platinum: 2 495 kr med 5 fria timmar och 20% rabatt. Guld: 1 250 kr med 3 fria timmar och 15% rabatt.', 'Silver: 995 kr med 2 fria timmar och 10% rabatt. Alla medlemskap gäller ett år. Personligt skåp kostar 1 995 kr per år.'] },
+  ]}
+  cards={[
+    { title: 'Medlemskap', text: 'Välj nivå direkt i Sweetspot.', label: 'Se medlemskap', href: site.membershipsUrl },
+    { title: 'Klippkort', text: 'Flexibla pass för fler rundor.', label: 'Se tillgängliga pass', href: site.passesUrl },
+    { title: 'Så fungerar det', text: 'Bokning, access och utrustning.', label: 'Inför besöket', href: `${base}/sa-funkar-det/` },
+  ]}
+  faqs={faqs}
+/>

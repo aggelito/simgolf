@@ -1,185 +1,30 @@
 ---
-import '../styles/global.css';
-
-const sweetspotUrl = 'https://book.sweetspot.io/clubs/golfoteket/2553/tee-sheet?date=2026-08-17';
-const siteUrl = 'https://aggelito.github.io/simgolf/';
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const pageUrl = 'https://aggelito.github.io/simgolf/golftraning-vinter/';
-const schema = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'SportsActivityLocation'],
-    '@id': `${siteUrl}#golfoteket`,
-    name: 'Golfoteket',
-    description: 'Golfoteket erbjuder golfträning inomhus på vintern i Stockholm med Trackman iO, 6 simulatorbanor och onlinebokning via Sweetspot.',
-    url: siteUrl,
-    areaServed: [{ '@type': 'City', name: 'Stockholm' }, { '@type': 'Place', name: 'Södermalm' }],
-    address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressRegion: 'Stockholm', addressCountry: 'SE' },
-    openingHours: 'Mo-Su 06:00-23:00',
-    amenityFeature: [
-      { '@type': 'LocationFeatureSpecification', name: '6 simulatorbanor', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Trackman iO', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Onlinebokning via Sweetspot', value: true },
-    ],
-    potentialAction: { '@type': 'ReserveAction', target: sweetspotUrl, name: 'Boka hos Golfoteket' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${pageUrl}#webpage`,
-    url: pageUrl,
-    name: 'Golfträning vinter i Stockholm — träna inomhus hos Golfoteket',
-    description: 'Golfträning vinter i Stockholm. Träna inomhus med Trackman iO hos Golfoteket på Södermalm, öppet 06.00–23.00 och bokning via Sweetspot.',
-    inLanguage: 'sv-SE',
-    about: { '@id': `${siteUrl}#golfoteket` },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Kan man träna golf hos Golfoteket på vintern?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Ja. Golfoteket är en inomhusstudio där du kan träna golf året runt med Trackman iO.' },
-      },
-      {
-        '@type': 'Question',
-        name: 'Är Trackman bra för vinterträning?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Ja. Trackman-data hjälper dig se bollflykt, längd och riktning även när du tränar inomhus.' },
-      },
-      {
-        '@type': 'Question',
-        name: 'Måste man ha egen utrustning?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Ping G440-klubbor och bollar finns på plats enligt nuvarande upplägg, men många tar gärna med egna klubbor för träning.' },
-      },
-    ],
-  },
-]);
+import SeoLanding from '../components/SeoLanding.astro';
+import { site } from '../data/golfoteket';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const faqs = [
+  ['Kan man träna golf på vintern?', 'Ja. Golfoteket är en inomhusstudio där du kan träna året runt med Trackman iO.'],
+  ['Vad kan jag följa i Trackman?', 'Trackman iO ger återkoppling på bland annat bollflykt, längd och riktning.'],
+  ['Måste jag ha egna klubbor?', 'Nej. Ping G440-klubbor och bollar ingår, men du får gärna ta med egna klubbor.'],
+];
 ---
-
-<!doctype html>
-<html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Golfträning vinter i Stockholm — träna inomhus hos Golfoteket</title>
-    <meta name="description" content="Golfträning vinter i Stockholm. Träna inomhus med Trackman iO hos Golfoteket på Södermalm, öppet 06.00–23.00 och bokning via Sweetspot." />
-    <meta name="theme-color" content="#08110c" />
-    <link rel="icon" href={`${basePath}/favicon.svg`} />
-    <link rel="canonical" href={pageUrl} />
-    <meta property="og:title" content="Golfträning vinter i Stockholm — träna inomhus hos Golfoteket" />
-    <meta property="og:description" content="Golfträning vinter i Stockholm. Träna inomhus med Trackman iO hos Golfoteket på Södermalm, öppet 06.00–23.00 och bokning via Sweetspot." />
-    <meta property="og:type" content="website" />
-    <script is:inline type="application/ld+json" set:html={schema}></script>
-    <script is:inline>
-      const storedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : prefersDark);
-    </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
-        <span class="brand-name">Golfoteket</span>
-        <span class="brand-tag">Golf i alla väder</span>
-      </a>
-      <nav aria-label="Huvudmeny">
-        <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf</a>
-        <a href={`${basePath}/golftraning-vinter/`}>Vinterträning</a>
-        <a href={`${basePath}/priser/`}>Priser</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Växla mellan mörkt och ljust läge">Mörkt</button>
-        <a class="nav-cta" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka</a>
-      </nav>
-    </header>
-
-    <main id="top" class="seo-page">
-      <section class="seo-hero section-shell">
-        <p class="eyebrow">Golfträning vinter</p>
-        <h1>Håll svingen varm när banorna sover.</h1>
-        <p class="hero-lead">Vinterträna golf inomhus på Södermalm med Trackman iO. Perfekt för dig som vill komma ut starkare när säsongen börjar igen.</p>
-        <div class="hero-actions">
-          <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
-          <a class="button secondary" href={`${basePath}/sa-funkar-det/`}>Så fungerar det</a>
-        </div>
-      </section>
-
-      <section class="ai-facts section-shell" aria-label="Sammanfattning">
-        <p class="eyebrow">Kort svar</p>
-        <h2>Var kan man vinterträna golf i Stockholm?</h2>
-        <p>Du kan träna golf inomhus hos Golfoteket på Södermalm i Stockholm. Studion har 6 simulatorbanor med Trackman iO, onlinebokning via Sweetspot och öppet 06.00–23.00.</p>
-      </section>
-
-      <section class="seo-content section-shell">
-        <article>
-          <h2>Träning som faktiskt ger feedback</h2>
-          <p>Att bara slå bollar i mörkret räcker inte. Med Trackman iO får du data på längd, riktning och bollflykt så att varje pass blir mer än motion.</p>
-          <p>Använd tiden för wedgekontroll, driver, järnslag eller spel på bana när vanliga rangen är stängd.</p>
-        </article>
-        <article>
-          <h2>Bygg rutin under lågsäsong</h2>
-          <p>Den som tränar jämnt under vintern kommer ut med ett försprång. Boka en timme själv, dela tid med en kompis eller gör det till en återkommande träningsrutin.</p>
-          <p>Golfoteket är self-service, vilket gör det enkelt att hitta tider tidigt, sent eller när kalendern öppnar.</p>
-        </article>
-      </section>
-
-      <section class="feature-grid section-shell" aria-label="Snabba val">
-        <article>
-          <h3>Boka träningspass</h3>
-          <p>Välj en tid i Sweetspot och använd simulatorn för fokuserad träning.</p>
-          <a href={sweetspotUrl}>Boka träningstid →</a>
-        </article>
-        <article>
-          <h3>Se hur det funkar</h3>
-          <p>Läs bokning, access och vad som finns på plats.</p>
-          <a href={`${basePath}/sa-funkar-det/`}>Så fungerar det →</a>
-        </article>
-        <article>
-          <h3>Spela också</h3>
-          <p>Växla träning med banor, tävlingar och social golf.</p>
-          <a href={`${basePath}/simulatorgolf-stockholm/`}>Simulatorgolf Stockholm →</a>
-        </article>
-      </section>
-
-      <section class="faq section-shell">
-        <p class="eyebrow">FAQ</p>
-        <details open>
-          <summary>Kan man träna golf hos Golfoteket på vintern?</summary>
-          <p>Ja. Golfoteket är en inomhusstudio där du kan träna golf året runt med Trackman iO.</p>
-        </details>
-        <details >
-          <summary>Är Trackman bra för vinterträning?</summary>
-          <p>Ja. Trackman-data hjälper dig se bollflykt, längd och riktning även när du tränar inomhus.</p>
-        </details>
-        <details >
-          <summary>Måste man ha egen utrustning?</summary>
-          <p>Ping G440-klubbor och bollar finns på plats enligt nuvarande upplägg, men många tar gärna med egna klubbor för träning.</p>
-        </details>
-      </section>
-
-      <section class="final-cta section-shell">
-        <p class="eyebrow">Redo att spela?</p>
-        <h2>Boka en tid hos Golfoteket.</h2>
-        <p>Simulatorgolf på Södermalm med Trackman iO, 6 simulatorbanor och enkel bokning via Sweetspot.</p>
-        <a class="button primary" href={sweetspotUrl} target="_blank" rel="noopener noreferrer">Se lediga tider</a>
-      </section>
-    </main>
-
-    <footer>
-      <strong>Golfoteket</strong>
-      <span>Simulatorgolf på Södermalm — öppet 06.00–23.00.</span>
-    </footer>
-    <script is:inline>
-      const toggle = document.querySelector('[data-theme-toggle]');
-      const setLabel = () => {
-        if (toggle) toggle.textContent = document.documentElement.classList.contains('dark') ? 'Ljust' : 'Mörkt';
-      };
-      setLabel();
-      toggle?.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        setLabel();
-      });
-    </script>
-  </body>
-</html>
+<SeoLanding
+  title="Golfträning vinter i Stockholm — träna hos Golfoteket"
+  description="Vinterträna golf inomhus på Södermalm med Trackman iO. Golfoteket öppnar 17 augusti med 6 simulatorer, tider 06–23 och Ping G440-klubbor som ingår."
+  path="golftraning-vinter/"
+  eyebrow="Golfträning vinter"
+  heading="Låt inte vintern ta svingen."
+  lead="Träna med tydlig data i Trackman iO och bygg en jämn rutin hela året. Golfoteket öppnar 17 augusti och har därefter öppet 06–23 varje dag."
+  answerHeading="Var kan man vinterträna golf i Stockholm?"
+  answer="På Golfoteket på Åsögatan 87 kan du träna golf inomhus i 6 Trackman iO-simulatorer. Boka en timme i Sweetspot, få din dörrkod och träna när det passar."
+  articles={[
+    { title: 'Feedback som gör passet värdefullt', paragraphs: ['Trackman iO hjälper dig följa bollflykt, längd och riktning. Lägg passet på wedgekontroll, driver, järnslag eller spel på bana.', 'Varje simulator har 4K laserprojektor, analysskärm och 27-tums kontrollskärm för en smidig träningsmiljö.'] },
+    { title: 'Gör träningen till en vana', paragraphs: ['Från öppningen 17 augusti finns tider 06 på morgonen till 23 på kvällen, vilket gör det lättare att få in ett pass före eller efter jobbet.', 'Medlemskap gäller i ett år och ger fria timmar samt rabatt. Klippkort finns också via Sweetspot.'] },
+  ]}
+  cards={[
+    { title: 'Medlemskap & pris', text: 'Jämför timpris och rabatter.', label: 'Se alla priser', href: `${base}/priser/` },
+    { title: 'Så fungerar det', text: 'Från bokning till dörrkod.', label: 'Läs guiden', href: `${base}/sa-funkar-det/` },
+    { title: 'Boka träning', text: 'Välj nästa tid i Sweetspot.', label: 'Till bokningen', href: site.bookingUrl },
+  ]}
+  faqs={faqs}
+/>

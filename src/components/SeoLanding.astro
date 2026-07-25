@@ -1,0 +1,98 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { faqSchema, localBusinessSchema, site } from '../data/golfoteket';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  eyebrow: string;
+  heading: string;
+  lead: string;
+  answerHeading: string;
+  answer: string;
+  articles: { title: string; paragraphs: string[] }[];
+  cards: { title: string; text: string; label: string; href: string }[];
+  faqs: string[][];
+}
+const props = Astro.props;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const heroImage = `${basePath}/images/golfoteket-live/hero-golf-1600.webp`;
+const schema = [
+  localBusinessSchema(props.description),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${site.url}${props.path}#webpage`,
+    url: `${site.url}${props.path}`,
+    name: props.title,
+    description: props.description,
+    inLanguage: 'sv-SE',
+    about: { '@id': `${site.url}#golfoteket` },
+  },
+  faqSchema(props.faqs),
+];
+---
+<BaseLayout title={props.title} description={props.description} path={props.path} schema={schema}>
+  <section class="seo-hero" style={`--seo-image: url("${heroImage}")`}>
+    <div class="section-shell seo-hero-inner">
+      <p class="eyebrow">{props.eyebrow}</p>
+      <h1>{props.heading}</h1>
+      <p class="hero-lead">{props.lead}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Boka i Sweetspot</a>
+        <a class="button light" href={`${basePath}/priser/`}>Se priser</a>
+      </div>
+      <div class="seo-proof" aria-label="Snabbfakta">
+        <span>Åsögatan 87</span><span>Öppnar 17/8 · sedan 06–23</span><span>6 Trackman iO</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="answer-band section-shell">
+    <p class="eyebrow">Kort svar</p>
+    <h2>{props.answerHeading}</h2>
+    <p>{props.answer}</p>
+  </section>
+
+  <section class="editorial-copy section-shell">
+    {props.articles.map((article, index) => (
+      <article>
+        <span class="section-number">0{index + 1}</span>
+        <h2>{article.title}</h2>
+        {article.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </article>
+    ))}
+  </section>
+
+  <section class="link-cards section-shell" aria-label="Läs vidare">
+    {props.cards.map((card) => (
+      <article>
+        <h3>{card.title}</h3>
+        <p>{card.text}</p>
+        <a
+          href={card.href}
+          target={card.href.startsWith('http') ? '_blank' : undefined}
+          rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        >{card.label} <span aria-hidden="true">→</span></a>
+      </article>
+    ))}
+  </section>
+
+  <section class="faq section-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Vanliga frågor</p>
+      <h2>Bra att veta före besöket.</h2>
+    </div>
+    <div class="faq-list">
+      {props.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+    </div>
+  </section>
+
+  <section class="final-cta section-shell">
+    <p class="eyebrow">Golf i alla väder</p>
+    <h2>Din nästa tid väntar.</h2>
+    <p>Simulatorgolf på Södermalm. Öppnar 17 augusti, därefter öppet 06–23 varje dag.</p>
+    <a class="button primary" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Se lediga tider</a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import { site } from '../data/golfoteket';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  schema: unknown;
+  image?: string;
+}
+
+const { title, description, path = '', schema, image } = Astro.props;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pageUrl = `${site.url}${path}`;
+const logo = `${basePath}/images/lovable/golfoteket-logo-new-l7jxXqlw.png`;
+const ogImage = image ?? `${site.url}images/golfoteket-live/hero-golf-1600.webp`;
+const nav = [
+  ['Simulatorgolf', 'simulatorgolf-stockholm/'],
+  ['Indoor golf', 'indoor-golf-stockholm/'],
+  ['Vinterträning', 'golftraning-vinter/'],
+  ['Så fungerar det', 'sa-funkar-det/'],
+  ['Priser', 'priser/'],
+  ['Företag', 'foretagsevent-golf/'],
+];
+---
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f0e5" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href={`${basePath}/favicon.svg`} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={ogImage} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Gå till innehållet</a>
+    <header class="site-header">
+      <a class="brand" href={`${basePath}/`} aria-label="Golfoteket startsida">
+        <img src={logo} alt="Golfoteket" width="176" height="88" />
+      </a>
+      <nav aria-label="Huvudmeny">
+        {nav.map(([label, href]) => <a href={`${basePath}/${href}`}>{label}</a>)}
+      </nav>
+      <details class="mobile-nav">
+        <summary>Meny</summary>
+        <div class="mobile-nav-panel">
+          {nav.map(([label, href]) => <a href={`${basePath}/${href}`}>{label}</a>)}
+          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Boka simulator</a>
+        </div>
+      </details>
+      <a class="header-cta" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Boka simulator</a>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div>
+        <strong>Golfoteket</strong>
+        <span>Åsögatan 87, 118 29 Stockholm</span>
+      </div>
+      <div class="footer-links">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href={`${site.productionUrl}/om-oss-som-bolag`} target="_blank" rel="noopener noreferrer">Om bolaget</a>
+        <a href={`${site.productionUrl}/faq`} target="_blank" rel="noopener noreferrer">Q&A</a>
+        <a href={`${site.productionUrl}/avtal-och-villkor`} target="_blank" rel="noopener noreferrer">Villkor</a>
+        <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href={site.socials.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href={site.socials.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </footer>
+    <a class="mobile-booking" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">Boka simulator</a>
+  </body>
+</html>
